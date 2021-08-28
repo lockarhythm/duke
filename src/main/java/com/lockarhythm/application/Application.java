@@ -13,13 +13,13 @@ public class Application {
           + "\t|____/ \\__,_|_|\\_\\___|\n";
 
   public static void run(UI ui, QueryInterpreter q) {
-    Result response;
+    Result result;
 
     ui.print("Hello I'm\n" + logo, "What can I do for you?");
 
     do {
-      response = q.interpret(ui.nextLine());
-      ui.print(response);
-    } while (ui.hasNext() && !response.shouldExit());
+      result = q.interpret(ui.nextLine());
+      ui.print(result);
+    } while (ui.hasNext() && !result.shouldExit());
   }
 }

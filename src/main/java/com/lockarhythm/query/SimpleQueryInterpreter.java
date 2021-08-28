@@ -5,7 +5,7 @@ import com.lockarhythm.query.exit.ExitResponder;
 import com.lockarhythm.query.markasdone.MarkAsDoneResponder;
 import com.lockarhythm.tasks.TaskList;
 
-/** SimpleQueryInterpreter finds the first QueryRespondable that responds a non-null response. */
+/** SimpleQueryInterpreter finds the first QueryRespondable that responds a non-null result. */
 public class SimpleQueryInterpreter implements QueryInterpreter {
   static QueryRespondable[] responders;
 
