@@ -1,6 +1,6 @@
 package com.lockarhythm.ui;
 
-import com.lockarhythm.query.QueryResult;
+import com.lockarhythm.query.Result;
 
 public interface UI {
   public String nextLine();
@@ -9,5 +9,5 @@ public interface UI {
 
   public void print(String... strings);
 
-  public void print(QueryResult res);
+  public void print(Result res);
 }

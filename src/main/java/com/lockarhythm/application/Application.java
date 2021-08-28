@@ -1,7 +1,7 @@
 package com.lockarhythm.application;
 
 import com.lockarhythm.query.QueryInterpreter;
-import com.lockarhythm.query.QueryResult;
+import com.lockarhythm.query.Result;
 import com.lockarhythm.ui.UI;
 
 public class Application {
@@ -13,7 +13,7 @@ public class Application {
           + "\t|____/ \\__,_|_|\\_\\___|\n";
 
   public static void run(UI ui, QueryInterpreter q) {
-    QueryResult response;
+    Result response;
 
     ui.print("Hello I'm\n" + logo, "What can I do for you?");
 

@@ -1,10 +1,10 @@
 package com.lockarhythm.query;
 
-public class QueryResult {
+public class Result {
   private String text;
   private boolean shouldExit;
 
-  public QueryResult(String text, boolean shouldExit) {
+  public Result(String text, boolean shouldExit) {
     this.text = text;
     this.shouldExit = shouldExit;
   }

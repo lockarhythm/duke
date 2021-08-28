@@ -1,10 +1,10 @@
 package com.lockarhythm.query.echo;
 
 import com.lockarhythm.query.QueryRespondable;
-import com.lockarhythm.query.QueryResult;
+import com.lockarhythm.query.Result;
 
 public class EchoResponder implements QueryRespondable {
-  public QueryResult respondTo(String query) {
-    return new QueryResult(query, false);
+  public Result respondTo(String query) {
+    return new Result(query, false);
   }
 }

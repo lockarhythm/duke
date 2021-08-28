@@ -1,7 +1,7 @@
 package com.lockarhythm.query.markasdone;
 
 import com.lockarhythm.query.QueryRespondable;
-import com.lockarhythm.query.QueryResult;
+import com.lockarhythm.query.Result;
 import com.lockarhythm.tasks.Task;
 import com.lockarhythm.tasks.TaskList;
 import java.util.regex.Matcher;
@@ -15,15 +15,15 @@ public class MarkAsDoneResponder implements QueryRespondable {
     this.list = list;
   }
 
-  public QueryResult respondTo(String query) {
+  public Result respondTo(String query) {
     Matcher matcher = pattern.matcher(query);
     if (matcher.find()) {
       int i = Integer.parseInt(matcher.group(1));
       if (i > 0 && i <= list.size()) {
         Task task = list.markAsDone(i - 1);
-        return new QueryResult("Nice! I've marked this task as done:\n\t" + task.toString(), false);
+        return new Result("Nice! I've marked this task as done:\n\t" + task.toString(), false);
       }
-      return new QueryResult(
+      return new Result(
           String.format("Item %d is not on the list. I cannot mark it as done!", i), false);
     }
     return null;

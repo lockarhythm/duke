@@ -1,12 +1,12 @@
 package com.lockarhythm.query.exit;
 
 import com.lockarhythm.query.QueryRespondable;
-import com.lockarhythm.query.QueryResult;
+import com.lockarhythm.query.Result;
 
 public class ExitResponder implements QueryRespondable {
-  public QueryResult respondTo(String query) {
+  public Result respondTo(String query) {
     if (query.equals("bye")) {
-      return new QueryResult("Bye. Hope to see you again soon!", true);
+      return new Result("Bye. Hope to see you again soon!", true);
     }
     return null;
   }
