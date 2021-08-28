@@ -1,10 +1,8 @@
 package com.lockarhythm.query;
 
-import com.lockarhythm.responders.QueryRespondable;
-import com.lockarhythm.responders.Response;
-import com.lockarhythm.responders.addlist.AddListResponder;
-import com.lockarhythm.responders.exit.ExitResponder;
-import com.lockarhythm.responders.markasdone.MarkAsDoneResponder;
+import com.lockarhythm.query.addlist.AddListResponder;
+import com.lockarhythm.query.exit.ExitResponder;
+import com.lockarhythm.query.markasdone.MarkAsDoneResponder;
 import com.lockarhythm.tasks.TaskList;
 
 /** SimpleQueryInterpreter finds the first QueryRespondable that responds a non-null response. */

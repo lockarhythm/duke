@@ -1,7 +1,7 @@
 package com.lockarhythm.application;
 
 import com.lockarhythm.query.QueryInterpreter;
-import com.lockarhythm.responders.Response;
+import com.lockarhythm.query.Response;
 import com.lockarhythm.ui.UI;
 
 public class Application {

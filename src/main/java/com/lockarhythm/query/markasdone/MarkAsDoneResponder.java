@@ -1,7 +1,7 @@
-package com.lockarhythm.responders.markasdone;
+package com.lockarhythm.query.markasdone;
 
-import com.lockarhythm.responders.QueryRespondable;
-import com.lockarhythm.responders.Response;
+import com.lockarhythm.query.QueryRespondable;
+import com.lockarhythm.query.Response;
 import com.lockarhythm.tasks.Task;
 import com.lockarhythm.tasks.TaskList;
 import java.util.regex.Matcher;

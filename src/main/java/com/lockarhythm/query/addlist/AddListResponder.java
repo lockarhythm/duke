@@ -1,7 +1,7 @@
-package com.lockarhythm.responders.addlist;
+package com.lockarhythm.query.addlist;
 
-import com.lockarhythm.responders.QueryRespondable;
-import com.lockarhythm.responders.Response;
+import com.lockarhythm.query.QueryRespondable;
+import com.lockarhythm.query.Response;
 import com.lockarhythm.tasks.TaskList;
 
 public class AddListResponder implements QueryRespondable {

@@ -1,7 +1,7 @@
-package com.lockarhythm.responders.exit;
+package com.lockarhythm.query.exit;
 
-import com.lockarhythm.responders.QueryRespondable;
-import com.lockarhythm.responders.Response;
+import com.lockarhythm.query.QueryRespondable;
+import com.lockarhythm.query.Response;
 
 public class ExitResponder implements QueryRespondable {
   public Response respondTo(String query) {

@@ -1,4 +1,4 @@
-package com.lockarhythm.responders;
+package com.lockarhythm.query;
 
 public class Response {
   private String text;

@@ -1,6 +1,6 @@
 package com.lockarhythm.ui;
 
-import com.lockarhythm.responders.Response;
+import com.lockarhythm.query.Response;
 
 public interface UI {
   public String nextLine();
