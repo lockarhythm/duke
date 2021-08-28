@@ -16,8 +16,8 @@ public class SimpleQueryInterpreter implements QueryInterpreter {
     responders = res;
   }
 
-  public Response interpret(String query) {
-    Response res = null;
+  public QueryResult interpret(String query) {
+    QueryResult res = null;
     for (QueryRespondable responder : responders) {
       res = responder.respondTo(query);
       if (res != null) {

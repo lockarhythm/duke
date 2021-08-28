@@ -1,6 +1,6 @@
 package com.lockarhythm.ui;
 
-import com.lockarhythm.query.Response;
+import com.lockarhythm.query.QueryResult;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public class TerminalUI implements UI {
     System.out.println("\t____________________________________________________________\n");
   }
 
-  public void print(Response res) {
+  public void print(QueryResult res) {
     print(res.getText());
   }
 }

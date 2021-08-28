@@ -1,5 +1,5 @@
 package com.lockarhythm.query;
 
 public interface QueryRespondable {
-  Response respondTo(String query);
+  QueryResult respondTo(String query);
 }
