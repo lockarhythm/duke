@@ -1,8 +1,8 @@
 package com.lockarhythm.ui;
 
+import com.lockarhythm.responders.Response;
 import java.util.Arrays;
 import java.util.Scanner;
-import com.lockarhythm.responders.Response;
 
 public class TerminalUI implements UI {
   private static Scanner in = new Scanner(System.in);

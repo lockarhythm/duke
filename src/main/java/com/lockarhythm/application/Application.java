@@ -1,11 +1,7 @@
 package com.lockarhythm.application;
 
-import com.lockarhythm.responders.QueryRespondable;
+import com.lockarhythm.query.QueryInterpreter;
 import com.lockarhythm.responders.Response;
-import com.lockarhythm.responders.addlist.AddListResponder;
-import com.lockarhythm.responders.exit.ExitResponder;
-import com.lockarhythm.responders.markasdone.MarkAsDoneResponder;
-import com.lockarhythm.tasks.TaskList;
 import com.lockarhythm.ui.UI;
 
 public class Application {
@@ -16,30 +12,13 @@ public class Application {
           + "\t| |_| | |_| |   <  __/\n"
           + "\t|____/ \\__,_|_|\\_\\___|\n";
 
-  static TaskList list = new TaskList();
-
-  static QueryRespondable[] responders = {
-    new ExitResponder(), new MarkAsDoneResponder(list), new AddListResponder(list),
-  };
-
-  private static Response getResponse(String query) {
-    Response res = null;
-    for (QueryRespondable responder : responders) {
-      res = responder.respondTo(query);
-      if (res != null) {
-        return res;
-      }
-    }
-    return res;
-  }
-
-  public static void run(UI ui) {
+  public static void run(UI ui, QueryInterpreter q) {
     Response response;
 
     ui.print("Hello I'm\n" + logo, "What can I do for you?");
 
     do {
-      response = getResponse(ui.nextLine());
+      response = q.interpret(ui.nextLine());
       ui.print(response);
     } while (ui.hasNext() && !response.shouldExit());
   }
