@@ -1,9 +1,9 @@
-package com.lockarhythm.responders.markasdone;
+package com.lockarhythm.query.markasdone;
 
 import static org.junit.Assert.*;
 
-import com.lockarhythm.responders.Response;
-import com.lockarhythm.responders.addlist.AddListResponder;
+import com.lockarhythm.query.Result;
+import com.lockarhythm.query.addlist.AddListResponder;
 import com.lockarhythm.tasks.TaskList;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ public class TestMarkAsDoneResponder {
     MarkAsDoneResponder mdresponder = new MarkAsDoneResponder(list);
     AddListResponder alresponder = new AddListResponder(list);
 
-    Response res = alresponder.respondTo("read book");
+    Result res = alresponder.respondTo("read book");
     assertEquals("added: read book", res.getText());
 
     res = alresponder.respondTo("return book");
@@ -34,7 +34,7 @@ public class TestMarkAsDoneResponder {
     MarkAsDoneResponder mdresponder = new MarkAsDoneResponder(list);
     AddListResponder alresponder = new AddListResponder(list);
 
-    Response res = alresponder.respondTo("read book");
+    Result res = alresponder.respondTo("read book");
     assertEquals("added: read book", res.getText());
 
     res = alresponder.respondTo("return book");
@@ -53,7 +53,7 @@ public class TestMarkAsDoneResponder {
     MarkAsDoneResponder mdresponder = new MarkAsDoneResponder(list);
     AddListResponder alresponder = new AddListResponder(list);
 
-    Response res = alresponder.respondTo("read book");
+    Result res = alresponder.respondTo("read book");
     assertEquals("added: read book", res.getText());
 
     res = mdresponder.respondTo("all done 10000");

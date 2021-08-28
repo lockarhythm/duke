@@ -6,7 +6,6 @@ import com.lockarhythm.ui.TerminalUI;
 
 public class TerminalDuke {
   public static void main(String[] args) {
-    TaskList list = new TaskList();
-    Application.run(new TerminalUI(), new SimpleQueryInterpreter(list));
+    Application.run(new TerminalUI(), new SimpleQueryInterpreter(new TaskList()));
   }
 }

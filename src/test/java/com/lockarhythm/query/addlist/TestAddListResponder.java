@@ -1,8 +1,8 @@
-package com.lockarhythm.responders.addlist;
+package com.lockarhythm.query.addlist;
 
 import static org.junit.Assert.*;
 
-import com.lockarhythm.responders.Response;
+import com.lockarhythm.query.Result;
 import com.lockarhythm.tasks.TaskList;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ public class TestAddListResponder {
   public void testAddsItemsAndLists() throws Exception {
     AddListResponder responder = new AddListResponder(new TaskList());
 
-    Response res = responder.respondTo("read book");
+    Result res = responder.respondTo("read book");
     assertEquals("added: read book", res.getText());
 
     res = responder.respondTo("return book");
