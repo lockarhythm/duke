@@ -4,7 +4,7 @@ import com.lockarhythm.query.QueryInterpreter;
 import com.lockarhythm.query.Result;
 import com.lockarhythm.ui.UI;
 
-public class Application {
+abstract class Application {
   static String logo =
       " \t____        _        \n"
           + "\t|  _ \\ _   _| | _____ \n"
