@@ -11,13 +11,13 @@ public class TestAddListResponder {
   public void testAddsItemsAndLists() throws Exception {
     AddListResponder responder = new AddListResponder(new TaskList());
 
-    Result res = responder.respondTo("read book");
+    Result res = responder.interpret("read book");
     assertEquals("added: read book", res.getText());
 
-    res = responder.respondTo("return book");
+    res = responder.interpret("return book");
     assertEquals("added: return book", res.getText());
 
-    res = responder.respondTo("list");
+    res = responder.interpret("list");
     assertTrue(res.getText().contains("1.[ ] read book\n2.[ ] return book\n"));
   }
 }

@@ -1,13 +1,13 @@
 package com.lockarhythm.query.markasdone;
 
-import com.lockarhythm.query.QueryRespondable;
+import com.lockarhythm.query.QueryInterpreter;
 import com.lockarhythm.query.Result;
 import com.lockarhythm.tasks.Task;
 import com.lockarhythm.tasks.TaskList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MarkAsDoneResponder implements QueryRespondable {
+public class MarkAsDoneResponder implements QueryInterpreter {
   private TaskList list;
   Pattern pattern = Pattern.compile("^done (\\d+)");
 
@@ -15,7 +15,7 @@ public class MarkAsDoneResponder implements QueryRespondable {
     this.list = list;
   }
 
-  public Result respondTo(String query) {
+  public Result interpret(String query) {
     Matcher matcher = pattern.matcher(query);
     if (matcher.find()) {
       int i = Integer.parseInt(matcher.group(1));

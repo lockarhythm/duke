@@ -1,17 +1,17 @@
 package com.lockarhythm.query.addlist;
 
-import com.lockarhythm.query.QueryRespondable;
+import com.lockarhythm.query.QueryInterpreter;
 import com.lockarhythm.query.Result;
 import com.lockarhythm.tasks.TaskList;
 
-public class AddListResponder implements QueryRespondable {
+public class AddListResponder implements QueryInterpreter {
   private TaskList list;
 
   public AddListResponder(TaskList list) {
     this.list = list;
   }
 
-  public Result respondTo(String query) {
+  public Result interpret(String query) {
     if (query.equals("list")) {
       return new Result("Here are the tasks in your list:\n" + list.toString());
     }

@@ -9,7 +9,7 @@ public class TestExitResponder {
   @Test
   public void testExitsOnKeyword() throws Exception {
     ExitResponder responder = new ExitResponder();
-    Result res = responder.respondTo("bye");
+    Result res = responder.interpret("bye");
 
     assertTrue(res.shouldExit());
   }
@@ -17,7 +17,7 @@ public class TestExitResponder {
   @Test
   public void testNullOnNonkeyword() throws Exception {
     ExitResponder responder = new ExitResponder();
-    Result res = responder.respondTo("hello");
+    Result res = responder.interpret("hello");
 
     assertNull(res);
   }

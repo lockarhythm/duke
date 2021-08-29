@@ -9,7 +9,7 @@ public class TestEchoResponder {
   @Test
   public void testEchosBackText() throws Exception {
     EchoResponder responder = new EchoResponder();
-    Result res = responder.respondTo("hello");
+    Result res = responder.interpret("hello");
 
     assertEquals("hello", res.getText());
     assertFalse(res.shouldExit());
