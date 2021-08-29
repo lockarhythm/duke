@@ -21,10 +21,10 @@ public class MarkAsDoneResponder implements QueryRespondable {
       int i = Integer.parseInt(matcher.group(1));
       if (i > 0 && i <= list.size()) {
         Task task = list.markAsDone(i - 1);
-        return new Result("Nice! I've marked this task as done:\n\t" + task.toString(), false);
+        return new Result("Nice! I've marked this task as done:\n\t" + task.toString());
       }
       return new Result(
-          String.format("Item %d is not on the list. I cannot mark it as done!", i), false);
+          String.format("Item %d is not on the list. I cannot mark it as done!", i));
     }
     return null;
   }

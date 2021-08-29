@@ -13,10 +13,10 @@ public class AddListResponder implements QueryRespondable {
 
   public Result respondTo(String query) {
     if (query.equals("list")) {
-      return new Result("Here are the tasks in your list:\n" + list.toString(), false);
+      return new Result("Here are the tasks in your list:\n" + list.toString());
     }
     // by default, adds the given query.
     list.add(query);
-    return new Result("added: " + query, false);
+    return new Result("added: " + query);
   }
 }

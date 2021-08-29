@@ -9,6 +9,10 @@ public class Result {
     this.shouldExit = shouldExit;
   }
 
+  public Result(String text) {
+    this(text, false);
+  }
+
   public String getText() {
     return text;
   }
