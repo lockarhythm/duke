@@ -17,9 +17,12 @@ abstract class Application {
 
     ui.print("Hello I'm\n" + logo, "What can I do for you?");
 
-    do {
+    while (ui.hasNext()) {
       result = q.interpret(ui.nextLine());
       ui.print(result);
-    } while (ui.hasNext() && !result.shouldExit());
+      if (result.shouldExit()) {
+        break;
+      }
+    }
   }
 }
