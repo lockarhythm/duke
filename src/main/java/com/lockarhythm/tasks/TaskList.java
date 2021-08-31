@@ -13,8 +13,27 @@ public class TaskList {
     return list.size();
   }
 
+  // TODO: rename to addTodoTask
   public void add(String description) {
-    list.add(new Task(description));
+    list.add(new TodoTask(description));
+  }
+
+  public TodoTask addTodoTask(String description) {
+    TodoTask task = new TodoTask(description);
+    list.add(task);
+    return task;
+  }
+
+  public DeadlineTask addDeadlineTask(String description, String by) {
+    DeadlineTask task = new DeadlineTask(description, by);
+    list.add(task);
+    return task;
+  }
+
+  public EventTask addEventTask(String description, String at) {
+    EventTask task = new EventTask(description, at);
+    list.add(task);
+    return task;
   }
 
   public Task markAsDone(int index) {
