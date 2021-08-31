@@ -13,11 +13,6 @@ public class TaskList {
     return list.size();
   }
 
-  // TODO: rename to addTodoTask
-  public void add(String description) {
-    list.add(new TodoTask(description));
-  }
-
   public TodoTask addTodoTask(String description) {
     TodoTask task = new TodoTask(description);
     list.add(task);
