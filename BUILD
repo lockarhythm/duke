@@ -10,6 +10,14 @@ java_library(
     ],
 )
 
+java_library(
+    name = "javafx_controllers",
+    srcs = glob([
+        "src/main/java/com/lockarhythm/ui/MainWindow.java", # TODO: move these javafx stuff into own package.
+    ]),
+    deps = [":javafx_mac_deps"]
+)
+
 java_binary(
     name = "TerminalDuke",
     srcs = glob([
@@ -20,9 +28,18 @@ java_binary(
 
 java_binary(
     name = "JavaFXUILauncher",
-    srcs = glob(["src/main/java/com/lockarhythm/ui/JavaFXUI*.java"]),
+    srcs = glob([
+        "src/main/java/com/lockarhythm/ui/JavaFXUI*.java",
+        #"src/main/java/com/lockarhythm/ui/MainWindow.java", # TODO: move these javafx stuff into own package.
+        ]),
+    resources = [
+        "src/main/resources/view/MainWindow.fxml",
+    ],
     deps = [
         ":javafx_mac_deps"
+    ],
+    runtime_deps = [
+        ":javafx_controllers",
     ],
 )
 
