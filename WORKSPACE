@@ -15,7 +15,12 @@ load("@rules_jvm_external//:defs.bzl", "maven_install")
 maven_install(
     artifacts = [
         #"com.google.guava:guava:21.0",
-        "org.apache.commons:commons-lang3:3.11"
+        "org.apache.commons:commons-lang3:3.11",
+
+        "org.openjfx:javafx-controls:mac:16",
+        "org.openjfx:javafx-graphics:mac:16",
+        "org.openjfx:javafx-base:mac:16",
+        "org.openjfx:javafx-fxml:mac:16",
     ],
     repositories = [
         # Private repositories are supported through HTTP Basic auth
