@@ -5,7 +5,10 @@ java_binary(
     srcs = glob([
         "src/main/java/com/lockarhythm/**/*.java",
     ]),
-    deps = ["@maven//:org_apache_commons_commons_lang3"]
+    deps = [
+        "@maven//:org_apache_commons_commons_lang3",
+        "@maven//:com_google_code_gson_gson",
+        ]
 )
 
 [
