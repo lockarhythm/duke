@@ -9,17 +9,17 @@ public class PersistentArrayList<E> extends ArrayList<E> {
     this.storage = storage;
   }
 
-  @Override
-  public boolean add(E element) {
-    boolean res = super.add(element);
-    storage.overwrite(this);
-    return res;
-  }
+  //@Override
+  //public boolean add(E element) {
+  //  boolean res = super.add(element);
+  //  storage.overwrite(this);
+  //  return res;
+  //}
 
-  @Override
-  public E remove(int index) {
-    E e = super.remove(index);
-    storage.overwrite(this);
-    return e;
-  }
+  //@Override
+  //public E remove(int index) {
+  //  E e = super.remove(index);
+  //  storage.overwrite(this);
+  //  return e;
+  //}
 }

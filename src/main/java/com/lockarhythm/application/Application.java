@@ -3,6 +3,7 @@ package com.lockarhythm.application;
 import com.lockarhythm.query.DukeException;
 import com.lockarhythm.query.QueryInterpreter;
 import com.lockarhythm.query.Result;
+import com.lockarhythm.storage.Storage;
 import com.lockarhythm.ui.UI;
 
 abstract class Application {
@@ -13,7 +14,7 @@ abstract class Application {
           + "\t| |_| | |_| |   <  __/\n"
           + "\t|____/ \\__,_|_|\\_\\___|\n";
 
-  public static void run(UI ui, QueryInterpreter q) {
+  public static void run(UI ui, QueryInterpreter q, Storage storage) {
     Result result;
 
     ui.print("Hello I'm\n" + logo, "What can I do for you?");
@@ -21,6 +22,7 @@ abstract class Application {
     while (ui.hasNext()) {
       try {
         result = q.interpret(ui.nextLine());
+        storage.overwrite(); // TODO: check result whether should save or not.
         ui.print(result);
         if (result.shouldExit()) {
           break;
