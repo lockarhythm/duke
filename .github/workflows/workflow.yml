@@ -27,7 +27,7 @@ jobs:
     - name: Run UI and Serialization Tests
       working-directory: ./text-ui-test
       run: |
-        chmod +x text-ui-test/runtest.sh
+        chmod +x runtest.sh
         ./runtest.sh
 
     - name: Build JAR File
