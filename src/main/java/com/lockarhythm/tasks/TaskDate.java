@@ -1,14 +1,14 @@
 package com.lockarhythm.tasks;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 class TaskDate implements Serializable {
-  private LocalDate d;
+  private LocalDateTime d;
 
   public TaskDate(String s) {
-    d = LocalDate.parse(s);
+    d = LocalDateTime.parse(s);
   }
 
   @Override
