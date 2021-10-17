@@ -5,6 +5,7 @@ import com.lockarhythm.query.QueryInterpreter;
 import com.lockarhythm.query.Result;
 import com.lockarhythm.storage.Storage;
 import com.lockarhythm.ui.UI;
+import java.io.IOException;
 
 abstract class Application {
   static String logo =
@@ -22,11 +23,13 @@ abstract class Application {
     while (ui.hasNext()) {
       try {
         result = q.interpret(ui.nextLine());
-        storage.overwrite(); // TODO: check result whether should save or not.
+        storage.overwrite();
         ui.print(result);
         if (result.shouldExit()) {
           break;
         }
+      } catch (IOException e) {
+        ui.print(String.format("Sorry, I cannot save the task to file: %s", e));
       } catch (DukeException e) {
         ui.print("Sorry, I don't understand that yet!");
       }

@@ -1,7 +1,7 @@
 package com.lockarhythm.tasks;
 
 public final class TodoTask extends Task {
-  private String typez = "TODO";
+  private String _type = "TODO";
 
   public TodoTask(String description) {
     super(description);

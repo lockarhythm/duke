@@ -20,7 +20,6 @@ import com.lockarhythm.tasks.Task;
 import java.util.ArrayList;
 
 public class Storage<T> {
-  // TODO: read from init
   private String filePath;
 
   private ArrayList<T> list;
@@ -38,35 +37,23 @@ public class Storage<T> {
     try {
       content = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
 
-      TaskDeserializer deserializer = new TaskDeserializer("typez");
+      TaskDeserializer deserializer = new TaskDeserializer("_type");
       Gson gson = new GsonBuilder()
         .registerTypeAdapter(Task.class, deserializer)
         .create();
-      //Type typeOfT = new TypeToken<T>(){}.getType();
       Type typeOfT = TypeToken.getParameterized(ArrayList.class, type).getType();
-      //return gson.fromJson(content, typeOfT);
       return gson.fromJson(content, new TypeToken<ArrayList<Task>>(){}.getType());
     } catch (IOException e) {
-      //content = "[]"; // empty list
       return new ArrayList<T>();
-    //} catch (Exception e) {
-    //  System.out.print(e);
-    //  return new PersistentArrayList<T>();
     }
   }
 
-  public void overwrite() {
-    try {
-      FileOutputStream fo = new FileOutputStream(filePath);
+  public void overwrite() throws IOException {
+    FileOutputStream fo = new FileOutputStream(filePath);
 
-      Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-      String js = gson.toJson(list);
-      fo.write(js.getBytes());
-
-    } catch (IOException e) {
-      // TODO: handle
-      System.out.print(e);
-    }
+    String js = gson.toJson(list);
+    fo.write(js.getBytes());
   }
 }

@@ -2,7 +2,7 @@ package com.lockarhythm.tasks;
 
 final class EventTask extends Task {
   private String at;
-  private String typez = "EVENT";
+  private String _type = "EVENT";
 
   public EventTask(String description, String at) {
     super(description);
