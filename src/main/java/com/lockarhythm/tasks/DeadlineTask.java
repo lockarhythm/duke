@@ -1,12 +1,15 @@
 package com.lockarhythm.tasks;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 final class DeadlineTask extends Task {
-  private String by;
+  private LocalDate by;
   private String _type = "DEADLINE";
 
   public DeadlineTask(String description, String by) {
     super(description);
-    this.by = by;
+    this.by = LocalDate.parse(by);
   }
 
   @Override
@@ -16,6 +19,10 @@ final class DeadlineTask extends Task {
 
   @Override
   public String toString() {
-    return String.format("%s (by: %s)", super.toString(), by);
+    return String.format(
+        "%s (by: %s)",
+        super.toString(),
+        by.format(DateTimeFormatter.ofPattern("MMM d yyyy"))
+    );
   }
 }
