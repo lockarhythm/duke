@@ -20,7 +20,7 @@ bazel build //:TerminalDuke && ./bazel-bin/TerminalDuke
 bazel run //:TerminalDuke
 
 # Use bazelisk for M1 Macs (Apple Silicon)
-USE_BAZEL_VERSION=last_green bazelisk run //:TerminalDuke
+USE_BAZEL_VERSION=ac9353fab161efae4af72e73fbb657a762b3620d bazelisk run //:TerminalDuke
 ```
 
 To build jar file for deployment purposes:
