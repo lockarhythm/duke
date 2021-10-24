@@ -19,7 +19,7 @@ then
 fi
 
 # compile the code into the bin folder, terminates if error occurred
-if ! bazel build //:TerminalDuke 
+if ! USE_BAZEL_VERSION=last_green bazelisk build //:TerminalDuke
 then
     echo "********** BUILD FAILURE **********"
     exit 1
