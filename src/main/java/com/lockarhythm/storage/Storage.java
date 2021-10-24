@@ -42,7 +42,11 @@ public class Storage<T> {
         .registerTypeAdapter(Task.class, deserializer)
         .create();
       Type typeOfT = TypeToken.getParameterized(ArrayList.class, type).getType();
-      return gson.fromJson(content, new TypeToken<ArrayList<Task>>(){}.getType());
+      ArrayList<T> deserialized = gson.fromJson(content, new TypeToken<ArrayList<Task>>(){}.getType());
+      if (deserialized == null) {
+        return new ArrayList<T>();
+      }
+      return deserialized;
     } catch (IOException e) {
       return new ArrayList<T>();
     }

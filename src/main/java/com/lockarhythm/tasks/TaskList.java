@@ -1,6 +1,8 @@
 package com.lockarhythm.tasks;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
 
 public class TaskList {
   private ArrayList<Task> list;
@@ -43,6 +45,10 @@ public class TaskList {
 
   public Task deleteTask(int index) {
     return list.remove(index);
+  }
+
+  public void sortByTaskDate() {
+    Collections.sort(list, (a, b) -> TaskDate.compare(a.getTaskDate(), b.getTaskDate()));
   }
 
   @Override
