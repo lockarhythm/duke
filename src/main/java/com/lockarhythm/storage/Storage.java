@@ -26,8 +26,17 @@ public class Storage<T> {
 
   private ArrayList<T> list;
 
+  private Gson gson;
+
   public Storage(String filePath) {
     this.filePath = filePath;
+
+    gson = new GsonBuilder()
+      .registerTypeAdapter(Task.class, new TaskDeserializer("_type"))
+      .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTime())
+      .registerTypeAdapter(LocalDate.class, new GsonLocalDate())
+      .setPrettyPrinting()
+      .create();
   }
 
   public void registerList(ArrayList<T> list) {
@@ -39,11 +48,6 @@ public class Storage<T> {
     try {
       content = Files.readString(Path.of(filePath), StandardCharsets.UTF_8);
 
-      Gson gson = new GsonBuilder()
-        .registerTypeAdapter(Task.class, new TaskDeserializer("_type"))
-        .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTime())
-        .registerTypeAdapter(LocalDate.class, new GsonLocalDate())
-        .create();
       Type typeOfT = TypeToken.getParameterized(ArrayList.class, type).getType();
       ArrayList<T> deserialized = gson.fromJson(content, new TypeToken<ArrayList<Task>>(){}.getType());
       if (deserialized == null) {
@@ -57,14 +61,6 @@ public class Storage<T> {
 
   public void overwrite() throws IOException {
     FileOutputStream fo = new FileOutputStream(filePath);
-
-    Gson gson = new GsonBuilder()
-      .registerTypeAdapter(Task.class, new TaskDeserializer("_type"))
-      .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTime())
-      .registerTypeAdapter(LocalDate.class, new GsonLocalDate())
-      .setPrettyPrinting()
-      .create();
-
     String js = gson.toJson(list);
     fo.write(js.getBytes());
   }
