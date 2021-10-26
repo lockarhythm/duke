@@ -9,7 +9,10 @@ java_binary(
         "@maven//:org_apache_commons_commons_lang3",
         "@maven//:com_google_code_gson_gson",
         "@maven//:org_ocpsoft_prettytime_prettytime_nlp",
-        ]
+    ],
+    jvm_flags = [
+        "-enableassertions",
+    ],
 )
 
 [
