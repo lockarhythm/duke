@@ -14,6 +14,7 @@ java_binary(
 
 java_binary(
     name = "TerminalDukeQA", # QA Build. has assertions enabled.
+    main_class = "com.lockarhythm.application.TerminalDuke",
     srcs = glob([
         "src/main/java/com/lockarhythm/**/*.java",
     ]),
