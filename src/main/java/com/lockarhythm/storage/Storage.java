@@ -15,6 +15,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/**
+ * Storage handles all concerns relating to persisting tasks to disk.
+ */
 public class Storage<T> {
   private String filePath;
 
@@ -22,6 +25,9 @@ public class Storage<T> {
 
   private Gson gson;
 
+  /**
+   * Storage constructor takes in filePath as the destination path to write bytes to.
+   */
   public Storage(String filePath) {
     this.filePath = filePath;
 
@@ -34,6 +40,9 @@ public class Storage<T> {
             .create();
   }
 
+  /**
+   * registerList is meant to allow top-level Application to pass a reference a the Task List so that Storage can save a reference.
+   */
   public void registerList(ArrayList<T> list) {
     this.list = list;
   }

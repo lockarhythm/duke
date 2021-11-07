@@ -9,12 +9,31 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * TerminalDuke is the entrypoint of the Terminal UI application of Duke.
+ */
 final class TerminalDuke extends Application {
+  static Path path = Paths.get(".", "tasks.json");
+  static Storage<Task> storage;
+  static TaskList taskList;
+
   public static void main(String[] args) {
-    Path path = Paths.get(".", "tasks.json");
-    Storage storage = new Storage<Task>(path.toString());
+    initStorage();
+    loadTaskList();
+    run(
+        new TerminalUI(),
+        new SimpleQueryInterpreter(taskList),
+        storage,
+        taskList
+    );
+  }
+
+  private static void initStorage() {
+    storage = new Storage<Task>(path.toString());
+  }
+
+  private static void loadTaskList() {
     ArrayList<Task> list = storage.load(Task.class);
-    storage.registerList(list);
-    run(new TerminalUI(), new SimpleQueryInterpreter(new TaskList(list)), storage);
+    TaskList taskList = new TaskList(list);
   }
 }
