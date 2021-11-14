@@ -27,6 +27,8 @@ public class Storage<T> {
 
   /**
    * Storage constructor takes in filePath as the destination path to write bytes to.
+   *
+   * @param filePath a valid location path to persist the tasks to.
    */
   public Storage(String filePath) {
     this.filePath = filePath;
@@ -42,11 +44,19 @@ public class Storage<T> {
 
   /**
    * registerList is meant to allow top-level Application to pass a reference a the Task List so that Storage can save a reference.
+   *
+   * @param list an array list of tasks to be persisted.
    */
   public void registerList(ArrayList<T> list) {
     this.list = list;
   }
 
+  /**
+   * load reads the array list of tasks from disk. In order to handle persisting of abstract classes like Task with GSON, we need to pass its class in as parameter.
+   *
+   * @param type to pass the abstract type that is expected.
+   * @return an array list of tasks from disk.
+   */
   public ArrayList<T> load(Class<T> type) {
     String content;
     try {
@@ -64,6 +74,9 @@ public class Storage<T> {
     }
   }
 
+  /**
+   * overwrite writes the current array list to disk.
+   */
   public void overwrite() throws IOException {
     FileOutputStream fo = new FileOutputStream(filePath);
     String js = gson.toJson(list);

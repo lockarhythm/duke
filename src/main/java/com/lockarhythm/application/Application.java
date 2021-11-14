@@ -4,7 +4,6 @@ import com.lockarhythm.query.DukeException;
 import com.lockarhythm.query.QueryInterpreter;
 import com.lockarhythm.query.Result;
 import com.lockarhythm.storage.Storage;
-import com.lockarhythm.tasks.TaskList;
 import com.lockarhythm.ui.UI;
 import java.io.IOException;
 
@@ -25,8 +24,12 @@ abstract class Application {
    * run should be supplied with concrete implementations of its UI, QueryInterpreter and Storage.
    *
    * <p>For example, UI could be the Terminal UI or GUI. Storage could be in-memory or disk.
+   *
+   * @param ui a concrete UI implementation
+   * @param q a concrete QueryInterpreter implementation
+   * @param storage any Storage implementation
    */
-  public static void run(UI ui, QueryInterpreter q, Storage storage, TaskList list) {
+  public static void run(UI ui, QueryInterpreter q, Storage storage) {
     Result result;
 
     ui.print("Hello I'm\n" + logo, "What can I do for you?");
@@ -34,7 +37,7 @@ abstract class Application {
     while (ui.hasNext()) {
       try {
         result = q.interpret(ui.nextLine());
-        storage.overwrite(list);
+        storage.overwrite();
         ui.print(result);
         if (result.shouldExit()) {
           break;
